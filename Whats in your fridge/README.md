@@ -1,15 +1,18 @@
-# Goodish
+# Eatssentials
 
 ## Installation 
-
+1. 
 
 
 ## Technologies
-* Bullet list
-              * Nested bullet
-                  * Sub-nested bullet etc
-          * Bullet list item 2
+* HTML/CSS
+* Javascript
+* PHP
+* SQL
+
 ## Introduction
+
+
 
 ## Visuals 
 
