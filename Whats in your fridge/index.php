@@ -43,7 +43,7 @@
   <header id="header" class="header-tops">
     <div class="container">
 
-      <h1><a href="index.phpl">Whats in your Fridge?</a></h1>
+      <h1><a href="index.phpl">Whats in the Fridge?</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       <h2><i>Get started by making a list of foods in your fridge</i></h2>
