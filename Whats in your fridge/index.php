@@ -43,7 +43,7 @@
   <header id="header" class="header-tops">
     <div class="container">
 
-      <h1><a href="index.html">Whats in your Fridge?</a></h1>
+      <h1><a href="index.phpl">Whats in your Fridge?</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       <h2><i>Get started by making a list of foods in your fridge</i></h2>
@@ -75,7 +75,49 @@
   <!-- ======= About Section ======= -->
   <section id="dashboard" class="dashboard">
 
+    <html>
+  <form action="insert.php" method="post">
+  Add Ingredient: <input type="text" name="ingredient" /><br><br>
+  <input type="submit" />
+  </form>
+</html>
 
+<?php
+require_once('connection.php');
+
+      //delete row on button click
+      if(isset($_GET["delete"])){
+                $ID = $_GET["delete"];
+                if($connection->query("DELETE FROM fridge WHERE ID=$ID")){
+                     header('Location: index.php#dashboard');
+                }  
+            }  
+
+        $result = mysqli_query($connection, "SELECT * FROM fridge ORDER BY ID");
+
+        echo "<table id='fridge'>
+        <thead>
+        <tr>
+        <th>Ingredient</th>
+        <th></th>
+        </tr>
+        </thead>";
+
+
+
+        while($row = mysqli_fetch_array($result))
+        {   
+            echo "<tbody>";
+            echo "<tr>";
+            echo "<td>" . $row['Ingredient'] . "</td>";
+            echo "<td><a class='button alert' href='index.php?delete=".$row["ID"]."'>Delete</a></td>";
+            echo "</tr>";
+        }
+     echo "</tbody>";   
+     echo "</table>";
+
+
+    ?>
    
   </section><!-- End About Section -->
 
