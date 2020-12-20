@@ -1,11 +1,13 @@
 # Eatssentials
-www.eatssentials.space
+www.eatssentials.online
 
 ## Installation 
-1. Download the repo locally on your computer
+1. Download the repository locally on your computer
 2. Ensure that XAMPP is downloaded locally or a webhost with PHP & SQL is configured
 3. Move the github files to the root directory of your web server. If using XAMPP in linux, move the files to opt/lampp/htdocs.
 4. With XAMPP installed and all servers running, proceed to localhost/phpmyadmin in your browser. Use phpMyAdmin to create a new database called ingredients and run the commands found in ingredients.sql
+5. Finally search www.eatssentials.online and browse!
+
 
 ## Technologies / Tools
 * HTML/CSS
