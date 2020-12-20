@@ -16,7 +16,7 @@ www.eatssentials.space
 * XAMPP
 
 ## Introduction
-Eatssentials is a web-based application that can be hosted on any browser (Google Chrome, Firefox, etc.). The website was inspired to help users with  health conditions such as diabetes, vitamin deficiencies, mineral deficiencies, and high/low cholesterol by searching the web for meals that they can make based on the list of foods in their refridgerator. First users will take a survey displayed on the dashboard of their health conditions and check which ever applies. Then users will be redirected to a page where they will one by one insert the items inside their fridge. Finally our website will search the web using the Spoonacular API for recipes that the user can make based around their health conditions and items in their fridge. 
+Eatssentials is a web-based application that can be hosted on any browser (Google Chrome, Firefox, etc.). The website intends to help users with certain health conditions such as diabetes, vitamin deficiencies, mineral deficiencies, and high/low cholesterol by browsing the web for health accomodating meals they can prepare with the limited items at their disposal. Initially, users will be prompted to fill out a survey where they indicate whether or not they have the health conditions listed. If they have a certain health condition, they must check the corresponding box. Next, the users will be redirected to a page where they are prompted to individually enter the names of the items inside their "fridge" or basically, in their household. From our end, our website will search the web using the Spoonacular API for recipes that the user can prepare based upon both their health conditions and the limited items in their fridge. 
 
 ## Visuals 
 
