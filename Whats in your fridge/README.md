@@ -26,7 +26,7 @@ Eatssentials is a web-based application that can be hosted on any browser (Googl
 * 
 
 ## Future Work 
-* login page
+* Login Page for users
 
 ## Contributers
 * Svanik Shirodkar
