@@ -1,15 +1,36 @@
+// Variable Declarations
+var id;
 var response = [];
-const ingredients = [];
-const resultsToDisplay = [];
+var allIDS = [];
+var response2 = [];
+var ingredientsList = [];
+var ingredientsScore = [];
 
-var key = "";
+var counter = 0;
 
+var swapCounterA = 0;
+var swapCounterB = 0;
+
+var finalData = {
+	recipeData: []
+};
+
+// Array that holds the corespondance for what div the recipe will output towards
+var counterResults = ["Results1", "Results2", "Results3", "Results4", "Results5", "Results6", "Results7", "Results8", "Results9", "Results10"];
+var outoutCounter = 0;
 
 // Good foods for diabetics
-const good_diabetes = ["fish", "leafy greens", "spinach", "avocados," "eggs", "chia seeds", "beans", "almonds", "walnuts", "pecans", "broccoli",
+const good_diabetes = ["fish", "leafy greens", "spinach", "avocados", "eggs", "chia seeds", "beans", "almonds", "walnuts", "pecans", "broccoli",
 		       "extra virgin olive oil", "flax seeds", "apple cider vinegar", "strawberries", "garlic", "squash", "shirataki noodles",
 		       "kale", "spinach", "arugula", "oranges", "melon", "apples", "grapes", "berries", "carrots", "fresh fruit", "vegetables",
 		       "tomatoes", "grains", "sweet potato", "applesauce", "sugar-free jam"];
+
+// Good foods for vitamin A deficiency patients
+
+const good_vitaminA = ["liver", "beef", "oily fish", "chicken", "eggs", "fortified milk", "carrots", "mangoes", "sweet potatoes",
+		       "leafy greens", "apricots", "papaya", "peaches", "tomatoes", "fortified skim milk", "meat", "poultry",
+		       "dairy", "beef liver", "sweet potato", "black-eyed peas", "spinach", "broccoli", "sweet red pepper", "mango",
+		       "cantaloupe", "pumpkin pie", "tomato juice", "herring"];
 
 // Good foods for calcium deficiency patients
 
@@ -28,7 +49,7 @@ const good_iron = ["beef", "lamb", "mutton", "pork", "ham", "turkey", "chicken",
 		   "enriched pasta", "chickpea", "enriched cereal", "enriched rice", "enriched bread", "oats", "dried fruit", "russet potato",
 		   "red potato", "nuts", "oranges", "lemons", "melon", "kiwi", "peppers", "strawberries", "tomatoes", "cream of wheat", "rye bread",
 		   "oat cereal", "strawberries", "watermelon", "raisins", "dates", "figs", "prunes", "prune juice", "dried peaches", "kidney beans",
-		   "garbanzo beans", "white beans", "canned beans" "olives", "mulberries", "soybeans", "flax seeds", "hummus", "cashews", "pistachios"];
+		   "garbanzo beans", "white beans", "canned beans", "olives", "mulberries", "soybeans", "flax seeds", "hummus", "cashews", "pistachios"];
 
 // Good foods for cholestrol patients
 
@@ -37,25 +58,125 @@ const good_cholesterol = ["oats", "barley", "legumes", "avocados", "walnuts", "f
 			  "okra", "eggplants", "carrots", "oranges", "carrots", "potatoes", "dark leafy greens", "kale", "spinach", "green tea",
 			  "black tea", "extra virgin olive oil"];
 
-// Good foods for vitamin A deficiency patients
 
-const good_vitaminA = ["liver", "beef", "oily fish", "chicken", "eggs", "fortified milk", "carrots", "mangoes", "sweet potatoes",
-		       "leafy greens", "apricots", "papaya", "peaches", "tomatoes", "fortified skim milk", "meat", "poultry",
-		       "dairy", "beef liver", "sweet potato", "black-eyed peas", "spinach", "broccoli", "sweet red pepper", "mango",
-		       "cantaloupe", "pumpkin pie", "tomato juice", "herring"];
 
 //Makes a call to the API with user's query, returns an array of recipes that match
 function getRecipe(q){
-	console.log(q);
+	//console.log(q);
 	$.ajax({
-		//Edit endpoint below to modify call
-		url:"https://api.spoonacular.com/recipes/complexSearch?apiKey=ba289e57e8ef469cb93c2b79d6a00525&includeIngredients="+q,
+		// API endpoint that we're making the call on
+		url:"https://api.spoonacular.com/recipes/findByIngredients?apiKey=c08276ecd7454db4bb516fc78bef6936&ingredients="+q,
 		success: function(res) {
+			//console.log(response[1].title);
+			//console.log(res);
 			response = res;
-			console.log(res.results);
-			//for (int i = 0; i < 10; i++) {
-				document.getElementById("results").innerHTML=res.results[0].title+"<br><img src='"+res.results[0].image+"' width='400' /><br><br>"
-			//}
+			getID(response);
+			//rankResults(response);
 		}
 	});
+}
+
+// This function gets the ID for the recipe that is referenced in getRecipe()
+function getID (response) {
+	for (var i = 0; i < 9; i++) {
+		allIDS[i] = response[i].id;
+		showRecipe(allIDS[i]);
+		displayRecipe(allIDS[i]);
+	}
+
+}
+
+// This function displays the recipe to the user after they hit the get recipe button
+// Takes into account food in their fridge and the score of the recipe
+function displayRecipe(f) {
+	$.ajax({
+		//Edit endpoint below to modify call
+		url:"https://api.spoonacular.com/recipes/" + f + "/information?apiKey=c08276ecd7454db4bb516fc78bef6936",
+		success: function(res) {
+			//console.log(response[1].title);
+			console.log(res);
+			document.getElementById(counterResults[outoutCounter]).innerHTML="<h5 class='card-title'>"+res.title+"</h5><br><img class ='card-img-top'src='"+res.image+"' width='400' /><br>" + "<p class='card-text'>" + res.sourceUrl + "</p>"
+			outoutCounter++;
+		}
+	});
+}
+// Gets the ingredients of the recipe from the api and calculates the score based on how many good foods there are
+function showRecipe(w) {
+	//console.log(w);
+	var score = 0;
+	$.ajax({
+		url:"https://api.spoonacular.com/recipes/" + w + "/ingredientWidget.json?apiKey=c08276ecd7454db4bb516fc78bef6936",
+		success: function(res) {
+			response2 = res;
+			// Loops until no ingredients remain
+			for (var i = 0; i < response2.ingredients.length; i++) {
+				// checker for the foods that are good for diabetes
+				ingredientsList[i] = response2.ingredients[i].name;
+				if (localStorage.diabetes == "1") {
+					if (good_diabetes.includes(response2.ingredients[i].name)) {
+					score++;
+					}
+				}
+				// checker for the foods that are good for vitamina
+				if (localStorage.vitamina == "1") {
+					if (good_vitaminA.includes(response2.ingredients[i].name)) {
+					score++;
+					}
+				}
+				// checker for the foods that are good for calcium
+				if (localStorage.calcium == "1") {
+					if (good_calcium.includes(response2.ingredients[i].name)) {
+					score++;
+					}
+				}
+				// checker for the foods that are good for iron
+				if (localStorage.iron == "1") {
+					if (good_iron.includes(response2.ingredients[i].name)) {
+					score++;
+					}
+				}
+
+				// checker for the foods that are good for cholesterol
+				if (localStorage.cholesterot == "1") {
+					if (good_cholesterol.includes(response2.ingredients[i].name)) {
+					score++;
+					}
+				}
+			}
+
+
+			if (counter < 10) {
+				ingredientsScore[counter] = score;
+			}
+
+			//finalData.recipeData.push({
+			//	"Score" : ingredientsScore[counter],
+			//	"ID" : allIDS[counter]
+			//});
+
+			console.log("Score: " + score + " Counter: " + counter + " ID: " + w);
+			counter++;
+		}
+	});
+}
+
+// These functions all store the result from the health survey in the localStorage of the user
+function storeDiabetes(diabetes) {
+	localStorage.setItem("diabetes", diabetes);
+}
+
+function storeVitamina(vitamina) {
+	localStorage.vitamina = vitamina;
+}
+
+function storeCalcium(calcium) {
+	localStorage.calcium = calcium;
+}
+
+function storeIron(iron) {
+	localStorage.iron = iron;
+}
+
+function storeCholesterot(cholesterot) {
+	localStorage.cholesterot = cholesterot;
 }
