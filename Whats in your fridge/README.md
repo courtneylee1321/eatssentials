@@ -34,7 +34,7 @@ PHP hosting our website
 CSS creating a user-friendly interface that users can interact with easily
 
 ## Ingredient.sql
-SQL file creating a database table to store ingredients from the user's fridge
+SQL file creating a database table to store ingredients from the user's refrigerator
 
 
 ## Future Work 
