@@ -1,3 +1,4 @@
+// Variable Declarations
 var id;
 var response = [];
 var allIDS = [];
@@ -14,6 +15,7 @@ var finalData = {
 	recipeData: []
 };
 
+// Array that holds the corespondance for what div the recipe will output towards
 var counterResults = ["Results1", "Results2", "Results3", "Results4", "Results5", "Results6", "Results7", "Results8", "Results9", "Results10"];
 var outoutCounter = 0;
 
@@ -62,7 +64,7 @@ const good_cholesterol = ["oats", "barley", "legumes", "avocados", "walnuts", "f
 function getRecipe(q){
 	//console.log(q);
 	$.ajax({
-		//Edit endpoint below to modify call
+		// API endpoint that we're making the call on
 		url:"https://api.spoonacular.com/recipes/findByIngredients?apiKey=c08276ecd7454db4bb516fc78bef6936&ingredients="+q,
 		success: function(res) {
 			//console.log(response[1].title);
@@ -74,6 +76,7 @@ function getRecipe(q){
 	});
 }
 
+// This function gets the ID for the recipe that is referenced in getRecipe()
 function getID (response) {
 	for (var i = 0; i < 9; i++) {
 		allIDS[i] = response[i].id;
@@ -83,6 +86,8 @@ function getID (response) {
 
 }
 
+// This function displays the recipe to the user after they hit the get recipe button
+// Takes into account food in their fridge and the score of the recipe
 function displayRecipe(f) {
 	$.ajax({
 		//Edit endpoint below to modify call
@@ -95,7 +100,7 @@ function displayRecipe(f) {
 		}
 	});
 }
-
+// Gets the ingredients of the recipe from the api and calculates the score based on how many good foods there are
 function showRecipe(w) {
 	//console.log(w);
 	var score = 0;
@@ -103,32 +108,35 @@ function showRecipe(w) {
 		url:"https://api.spoonacular.com/recipes/" + w + "/ingredientWidget.json?apiKey=c08276ecd7454db4bb516fc78bef6936",
 		success: function(res) {
 			response2 = res;
+			// Loops until no ingredients remain
 			for (var i = 0; i < response2.ingredients.length; i++) {
+				// checker for the foods that are good for diabetes
 				ingredientsList[i] = response2.ingredients[i].name;
 				if (localStorage.diabetes == "1") {
 					if (good_diabetes.includes(response2.ingredients[i].name)) {
 					score++;
 					}
 				}
-
+				// checker for the foods that are good for vitamina
 				if (localStorage.vitamina == "1") {
 					if (good_vitaminA.includes(response2.ingredients[i].name)) {
 					score++;
 					}
 				}
-
+				// checker for the foods that are good for calcium
 				if (localStorage.calcium == "1") {
 					if (good_calcium.includes(response2.ingredients[i].name)) {
 					score++;
 					}
 				}
-
+				// checker for the foods that are good for iron
 				if (localStorage.iron == "1") {
 					if (good_iron.includes(response2.ingredients[i].name)) {
 					score++;
 					}
 				}
 
+				// checker for the foods that are good for cholesterol
 				if (localStorage.cholesterot == "1") {
 					if (good_cholesterol.includes(response2.ingredients[i].name)) {
 					score++;
@@ -152,6 +160,7 @@ function showRecipe(w) {
 	});
 }
 
+// These functions all store the result from the health survey in the localStorage of the user
 function storeDiabetes(diabetes) {
 	localStorage.setItem("diabetes", diabetes);
 }
