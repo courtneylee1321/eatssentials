@@ -10,7 +10,7 @@
   <title>Whats in your Fridge</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+`
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/favicon.png" rel="apple-touch-icon">
@@ -29,6 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="search.js"></script>
   <!-- =======================================================
   * Template Name: Personal - v2.4.0
   * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
@@ -43,7 +44,7 @@
   <header id="header" class="header-tops">
     <div class="container">
 
-      <h1><a href="index.phpl">Whats in the Fridge?</a></h1>
+      <h1><a href="index.php">Whats in your Fridge?</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       <h2><i>Get started by making a list of foods in your fridge</i></h2>
@@ -119,11 +120,46 @@ require_once('connection.php');
 
     ?>
    
+
+  <?php
+
+    $sth = mysqli_query($connection, "SELECT Ingredient FROM fridge");
+    $rows = array();
+    while($r = mysqli_fetch_assoc($sth)) {
+        $rows[] = $r['Ingredient'];
+    }
+    $string = json_encode($rows);
+    ?>
+
+
+ 
+
   </section><!-- End About Section -->
 
   <!-- ======= Recipes Section ======= -->
   <section id="recipes" class="recipes">
     
+  <form id="f1" name="f1" class="search">
+        <input type="text" name="user" id="mytext">
+        <input type="button" name="b1" value="SEARCH" form="mytext" onclick="getRecipe(document.getElementById('mytext').value)">
+      </form>
+
+   <script type="text/javascript">
+    var rows1 = <?php echo json_encode($rows); ?>;
+
+    var myJSON = JSON.stringify(rows1);
+
+    var parsed = myJSON.replace(/[&\/\\#+()$~%.'":*?<>{}\[\]]/g,'');
+    console.log(parsed);
+
+    var ing = JSON.stringify(parsed);
+    console.log(ing);
+
+    document.getElementById("mytext").value = parsed;
+  </script>
+
+  <div id="results"></div>
+    <div id="results1"></div>
   </section><!-- End Resume Section -->
 
 
