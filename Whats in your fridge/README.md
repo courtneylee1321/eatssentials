@@ -16,7 +16,7 @@ www.eatssentials.space
 * XAMPP
 
 ## Introduction
-Eatssentials is a web-based application that can be hosted on any browser (Google Chrome, Firefox, etc.). The website intends to help users with certain health conditions such as diabetes, vitamin deficiencies, mineral deficiencies, and high/low cholesterol by browsing the web for health accomodating meals they can prepare with the limited items at their disposal. Initially, users will be prompted to fill out a survey where they indicate whether or not they have the health conditions listed. If they have a certain health condition, they must check the corresponding box. Next, the users will be redirected to a page where they are prompted to individually enter the names of the items inside their "fridge" or basically, in their household. From our end, our website will browse the web using the Spoonacular API for recipes that the user can prepare based upon both their health conditions and the limited items in their fridge. 
+Eatssentials is a web-based application that can be hosted on any browser (Google Chrome, Firefox, etc.). The website intends to help users with certain health conditions such as diabetes, vitamin deficiencies, mineral deficiencies, and high/low cholesterol by browsing the web for health accomodating meals they can prepare with the limited items at their disposal. Initially, users will be prompted to fill out a survey where they indicate whether or not they have the health conditions listed. The health survey is designed specifically for individuals with the mentioned health conditions, thus the default answer in the survey is 'Yes.' If a user does not have a specific health condition, they must specifically indicate by checking 'No' in the survey's slots. Upon survey completion, the users will be redirected to a page where they are prompted to individually enter the names of the ingredients inside their "fridge." From our end, our website will browse the web, using the Spoonacular API, for recipes that the user can prepare based upon both their health conditions and the limited items in their fridge. 
 
 ## Visuals 
 
@@ -27,6 +27,7 @@ Eatssentials is a web-based application that can be hosted on any browser (Googl
 
 ## Future Work 
 * Login Page for users
+* Functionality to save recipes to a user's account. This ensures a user would not have to repeatedly enter ingredients for particular recipes.
 
 ## Contributers
 * Svanik Shirodkar
