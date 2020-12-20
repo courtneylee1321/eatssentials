@@ -24,10 +24,9 @@ Initially, users will be prompted to fill out a survey where they indicate wheth
 
 ## Visuals 
 
+![alt text](https://paste.pics/0f6bb8cd6ed166e245fb6b01a0f97196)
 
 
-## Included Files
-* 
 
 ## Future Work 
 * Login Page for users
