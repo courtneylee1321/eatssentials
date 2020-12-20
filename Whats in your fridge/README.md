@@ -24,7 +24,7 @@ Our project is called Eatssentials, an online recipe book built around your heal
 
 Initially, users will be prompted to fill out a survey where they indicate whether or not they have the health conditions listed. A series of health conditions will be listed and the default answer is set to 'No.' If a user has a health condition, they must specifically indicate it by selecting 'Yes' in the slot. Upon survey completion, the users will be redirected to a page where they are prompted to individually enter the names of the ingredients inside their "fridge." There will also be an option to remove ingredients from the list you have created. If you remove an ingredient, click on the ‘Recipes’ tab at the top and when the redirected page appears, select ‘Find Recipes.’ From our end, our website will browse the web, using the Spoonacular API, for recipes that the user can prepare based upon both their health conditions and the limited items in their fridge.
 
-## Visuals 
+# Visuals 
 
 # Main Files 
 ## Index.php 
