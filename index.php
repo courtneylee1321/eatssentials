@@ -2,12 +2,10 @@
 
 <html lang = "en"> 
     
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!--<div id = "logo"><img src="assets/img/favicon.png" width="55" height="55" ></div>-->
   
   <title>Eatssentials</title>
   <meta content="" name="description">
@@ -47,6 +45,7 @@
   <header id="header" class="header-tops">
     <div class="container">
         
+        <!-- short description of the purpose of the website-->
         <div class = "row justify-content-center"> 
             <div class = "col-xl-6 col-lg-6"> 
             
@@ -54,39 +53,21 @@
      <p class = "turquoise-text">Food Essentials that keep you healthy and happy. </p>
                 <br>
     <p class = "turquoise-text"> Eatssentials is your online recipe book built around your health and what’s in your fridge. </p>
-    <br> 
-                
-                
+    <br>      
       
     <div class = "text-center mt-4"> 
                 
+        
+        <!-- Get started button displayed on the  homepage-->
           <a class = "btn btn-primary " href = "dashboard.php#survey" id = "get-started"> Get Started </a>
-                   
                 
                 </div>
-   
-            
-            
             </div>
-        
-        
-        
-        
-        
         </div>
-        
-
-
-
-      
-
     </div>
     
 
     </header>
     </body>
     
-    
-    
-
 </html> 
