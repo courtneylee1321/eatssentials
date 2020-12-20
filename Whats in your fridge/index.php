@@ -47,7 +47,10 @@
       <h1><a href="index.php">Whats in your Fridge?</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2><i>Get started by making a list of foods in your fridge</i></h2>
+      <h2><i>Food Essentials that get you healthy</i></h2>
+      <br>
+      <h2><i>Get started by clicking "Survey"</i></h2>
+
 
       <form id="f1" name="f1" class="search">
       	<input type="text" id="t1" name="t1" placeholder="Search recipes here..."
@@ -60,9 +63,10 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#contact">Survey</a></li>
           <li><a href="#dashboard">Dashboard</a></li>
           <li><a href="#recipes">Recipes</a></li>
-          <li><a href="#contact">Contact</a></li>
+          
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -73,7 +77,7 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= About Section ======= -->
+  <!-- ======= Dashboard Section ======= -->
   <section id="dashboard" class="dashboard">
 
     <html>
@@ -168,37 +172,23 @@ require_once('connection.php');
     <div class="container">
 
       <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Us</p>
+        <h2>Survey</h2>
+        <p>Survey</p>
+        Please check all of the health conditions that apply to you: 
       </div>
 
-      
-
       <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
-        <div class="form-row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-            <div class="validate"></div>
-          </div>
-          <div class="col-md-6 form-group">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-            <div class="validate"></div>
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-          <div class="validate"></div>
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-          <div class="validate"></div>
-        </div>
-        <div class="mb-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
+              <input type="checkbox" name="check[]" value="val1" id="diabetes" onclick="checkbox()" unchecked>Diabetes</input>
+              <br>
+              <input type="checkbox" name="check[]" value="val2" id="vitamina" onclick="checkbox()" unchecked>Vitamin A Deficiency</input>
+              <br>
+              <input type="checkbox" name="check[]" value="val3" id="calcium" onclick="checkbox()" unchecked>Calcium Deficiency</input>
+              <br>
+              <input type="checkbox" name="check[]" value="val4" id="iron" onclick="checkbox()" unchecked>Iron Deficiency</input>
+              <br>
+              <input type="checkbox" name="check[]" value="val5" id="cholesterol" onclick="checkbox()" unchecked>High Cholesterol</input>
+              <br>
+
       </form>
 
     </div>
@@ -219,6 +209,50 @@ require_once('connection.php');
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    // checks which health conditions user checked
+    function checkbox()
+        {
+            var check1 = document.getElementById ("diabetes");
+            var check2 = document.getElementById ("vitamina");
+            var check3 = document.getElementById ("calcium");
+            var check4 = document.getElementById ("iron");
+            var check5 = document.getElementById ("cholesterol");
+
+            if (check5.checked == true)
+            {
+                console.log ("cholesterol")
+                return true;
+            } 
+            if (check4.checked == true)
+            {
+                console.log ("iron")
+                return true;
+            }
+            if (check3.checked == true)
+            {
+                console.log ("calcium")
+                return true;
+            }
+            if (check2.checked == true)
+            {
+                console.log ("vitamina")
+                return true;
+            }
+            if (check1.checked == true)
+            {
+                console.log ("diabetes")
+                return true;
+            } 
+            
+            else
+            {
+                console.log("false")
+                return false;
+            }
+        }
+  </script>
 
 </body>
 
