@@ -29,7 +29,7 @@ Eatssentials is a web-based application that can be hosted on any browser (Googl
 * login page
 
 ## Contributers
-* Svanik Shirdodkar
+* Svanik Shirodkar
 * Sarah Lim
 * Nisha Reddy
 * Courtney Lee
