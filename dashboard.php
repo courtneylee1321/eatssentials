@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!--<div id = "logo"><img src="assets/img/favicon.png" width="55" height="55" ></div>-->
-  
+  <!--Display of the website title-->
   <title>Eatssentials</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -45,16 +44,14 @@
     <div class="container">
         
     
-            <div class = "col-xl-5 col-lg-5"> 
+    <div class = "col-xl-5 col-lg-5"> 
             
-              <a href="index.php" class="mr-auto"><img id = "logo2" src="assets/logo-07.svg" alt="" class="img-fluid mb-3"></a> 
-         
-            
-        
+    <a href="index.php" class="mr-auto"><img id = "logo2" src="assets/logo-07.svg" alt="" class="img-fluid mb-3"></a> 
         
         </div>
-        
-
+      
+      
+       <!-- Navigation menu with 4 tabs -->
       <nav class="nav-menu d-none d-lg-block">
         <ul>
         
@@ -65,18 +62,12 @@
           
         </ul>
       </nav><!-- .nav-menu -->
-
-
-
       
-
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= About Section ======= -->
+  <!-- ======= Dashboard Section ======= -->
   <section id="dashboard" class="dashboard">
-
-     
       
     <div class = "container dashboard-container"> 
         
@@ -91,20 +82,19 @@
       <input type="submit" class = "ml-3" />
     </form>
             
-    <!-- 
-            Have data generate here... --> 
+    <!-- Have data generate here... --> 
                 
             
-          <?php
-require_once('connection.php');
+      <?php
+      require_once('connection.php');
 
       //delete row on button click
       if(isset($_GET["delete"])){
-                $ID = $_GET["delete"];
-                if($connection->query("DELETE FROM fridge WHERE ID=$ID")){
-                     header('Location: index.php#dashboard');
-                }  
-            }  
+        $ID = $_GET["delete"];
+        if($connection->query("DELETE FROM fridge WHERE ID=$ID")){
+          header('Location: index.php#dashboard');
+        }  
+       }  
 
         $result = mysqli_query($connection, "SELECT * FROM fridge ORDER BY ID");
 
@@ -126,13 +116,15 @@ require_once('connection.php');
             echo "<td><a class='button alert' href='index.php?delete=".$row["ID"]."'>Delete</a></td>";
             echo "</tr>";
         }
-     echo "</tbody>";   
-     echo "</table>";
+   
+        echo "</tbody>";   
+        echo "</table>";
 
 
     ?>
    
 
+  <!-- selecting query to get ingredients from the list of items user enters in the dashboard -->
   <?php
 
     $sth = mysqli_query($connection, "SELECT Ingredient FROM fridge");
@@ -143,56 +135,47 @@ require_once('connection.php');
     $string = json_encode($rows);
     ?>
         
-                    
-                
-                
-                
-            
-            </div>
-            
-       
-            
-            
-            
-            </div>
+    </div>
         
-         <div class = "row justify-content-end"> 
-            <div class = "col-6">
+    </div>
+        
+    <div class = "row justify-content-end"> 
+    <div class = "col-6">
                 
-                <img id = "fridge-pic" src = "assets/img/fridge%20-01.svg"> 
+    <img id = "fridge-pic" src = "assets/img/fridge%20-01.svg"> 
             
                 
       </div>
             
-            </div>
-            
-            
-           
+      </div>
             
         
-        </div>
+      </div>
     
    
       
  </html>     
 
 <html>
-  </section><!-- End About Section -->
+  </section><!-- End Dashboard Section -->
 
   <!-- ======= Recipes Section ======= -->
   <section id="recipes" class="recipes">
   <script src="search.js"></script>
   <form id="f1" name="f1" class="search">
         <input type="hidden" name="user" id="mytext">
+        <!-- Retrieve recipes button -->
         <input type="button" class = "button-turquoise" name="b1" value="Find Recipes" form="mytext" onclick="getRecipe(document.getElementById('mytext').value)">
       </form>
 
    <script type="text/javascript">
     var rows1 = <?php echo json_encode($rows); ?>;
 
+    
     var myJSON = JSON.stringify(rows1);
     console.log(myJSON);
 
+    // parsing through the script user enters
     var parsed = myJSON.replace(/[&\/\\#+()$~%.'":*?<>{}\[\]]/g,'');
     console.log(parsed);
 
@@ -200,10 +183,11 @@ require_once('connection.php');
     console.log(ing);
 
     document.getElementById("mytext").value = parsed;
-  </script>
+    </script>
   
-  <div class ="container dashboard-container">
-      
+    <!--Card display of the retrieved recipes-->
+    <div class ="container dashboard-container">
+     
       <div class ="row justify-content-around">  
       
       <div class ="col-3">
@@ -269,12 +253,10 @@ require_once('connection.php');
   </div>
 
 
+  </section><!-- End Recipes Section -->
 
 
-  </section><!-- End Resume Section -->
-
-
-  <!-- ======= Contact Section ======= -->
+  <!-- ======= Survey Section ======= -->
   <section id="survey" class="survey">
     <div class="container survey-background">
 
@@ -285,7 +267,6 @@ require_once('connection.php');
       </div>
         
         <br> 
-
 
        <!-- Short survey of a list of health conditions may or may have -->
        <!-- User will check the boxes that apply to them -->
@@ -330,7 +311,7 @@ require_once('connection.php');
     </div>
   </section>
     
-    <!-- End Contact Section -->
+    <!-- End Survey Section -->
 
   
 
