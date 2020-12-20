@@ -16,6 +16,7 @@ www.eatssentials.online
 * SQL
 * Spoonacular API
 * XAMPP
+# 
 
 ## Introduction
 Our project is called Eatssentials, an online recipe book built around your health and what’s in your fridge. To elaborate, Eatssentials is a web-based application that can be hosted on any browser (Google Chrome, Firefox, etc.). The website intends to help users with certain health conditions such as diabetes, vitamin deficiencies, mineral deficiencies, and high cholesterol by browsing the web for health accommodating meals they can prepare with the limited items at their disposal. 
@@ -28,7 +29,7 @@ Initially, users will be prompted to fill out a survey where they indicate wheth
 
 
 ## Future Work 
-* Login Page for users
+* Login and sign in page for users in order for the tailored recipes will be saved on the recipes tab for them to reference in the future
 * Functionality to save recipes to a user's account. This ensures a user would not have to repeatedly enter ingredients for particular recipes.
 
 ## Contributers
