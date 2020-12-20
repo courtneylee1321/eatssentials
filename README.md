@@ -32,10 +32,10 @@ Initially, users will be prompted to fill out a survey where they indicate wheth
 ![Recipes](https://raw.githubusercontent.com/courtneylee1321/eatssentials/master/recipes.JPG)
 # Main Files 
 ## Index.php 
-PHP hosting our website 
+PHP is hosting our website 
 
 ## Style.css 
-CSS creating a user-friendly interface that users can interact with easily
+CSS is creating a user-friendly interface that users can interact with easily
 
 ## Ingredient.sql
 SQL file creating a database table to store ingredients from the user's refrigerator
