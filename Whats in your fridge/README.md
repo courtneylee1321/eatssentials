@@ -26,8 +26,15 @@ Initially, users will be prompted to fill out a survey where they indicate wheth
 
 ## Visuals 
 
-# Files 
-# Index.php 
+# Main Files 
+## Index.php 
+PHP hosting our website 
+
+## Style.css 
+CSS creating a user-friendly interface that users can interact with easily
+
+## Ingredient.sql
+SQL file creating a database table to store ingredients from the user's fridge
 
 
 ## Future Work 
