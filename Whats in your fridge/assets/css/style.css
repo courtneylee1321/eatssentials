@@ -50,7 +50,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+ font-family: 'Lato', sans-serif;
 }
 
 #logo > img {
@@ -70,6 +70,10 @@ h1, h2, h3, h4, h5, h6 {
 #get-started {
     background-color: #183A37;
    
+}
+
+.button {
+    background-color: #183A37;
 }
 
 
@@ -188,8 +192,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   color: #183A37;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .nav-menu a:before {
@@ -363,7 +366,6 @@ section.section-show {
 }
 
 section .container {
-  background: #F0F8FF;
   padding: 30px;
 }
 
@@ -385,7 +387,6 @@ section .container {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #aaaaaa;
-  font-family: "Poppins", sans-serif;
 }
 
 .section-title h2::after {
@@ -403,120 +404,65 @@ section .container {
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
   color: black;
 }
 
 /*--------------------------------------------------------------
-# About
+# Survey
 --------------------------------------------------------------*/
+.survey-background {
+    background:#70A9A1;
+}
+
+.survey-items {
+    font-weight: 700;
+}
+
 
 
 /*--------------------------------------------------------------
-# Counts
+# Dashboard
 --------------------------------------------------------------*/
-.counts {
-  padding: 70px 0 60px;
+
+.turquoise-text-header {
+    text-align: left;
+    color: #70A9A1;
+    font-weight: 700;
+    font-size: 25px;
 }
 
-.counts .count-box {
-  padding: 30px 30px 25px 30px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.08);
+.body-text {
+     color: #70A9A1;
+    font-size: 18px; 
+    font-weight: 600;
 }
 
-.counts .count-box i {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 12px;
-  color: #EAEDF0;
-  border-radius: 50px;
+.section-title h2 {
+    color: #183A37;
 }
 
-.counts .count-box span {
-  font-size: 36px;
-  display: block;
-  font-weight: 600;
-  color: black;
+.dashboard-container {
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
-.counts .count-box p {
-  padding: 0;
-  margin: 0;
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
+/* NISHA- this is the code for the size of the fridge picture */ 
+
+#fridge-pic {
+    transform: scale(2,2);
+    margin-left: 250px;
 }
+
+
+
 
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
-.skills .progress {
-  height: 50px;
-  display: block;
-  background: none;
-}
-
-.skills .progress .skill {
-  padding: 10px 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  color: black;
-}
-
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: .9s;
-  background-color: #D8CEE6;
-}
 
 /*--------------------------------------------------------------
 # Interests
 --------------------------------------------------------------*/
-.interests .icon-box {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  transition: ease-in-out 0.3s;
-}
-
-.interests .icon-box i {
-  font-size: 32px;
-  padding-right: 10px;
-  line-height: 1;
-}
-
-.interests .icon-box h3 {
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 16px;
-  color: black;
-}
-
-.interests .icon-box:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
 
 /*--------------------------------------------------------------
 # Testimonials
