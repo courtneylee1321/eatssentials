@@ -6,7 +6,6 @@ www.eatssentials.space
 2. Insure that XAMPP is downloaded locally or a webhost with php and sql is configured
 3. Move the github files to the root directory of your web server. If using XAMPP in linux, move the files to opt/lampp/htdocs.
 4. With XAMPP installed and all servers running, proceed to localhost/phpmyadmin in your browser. Use phpMyAdmin to create a new database called ingredients and run the commands found in ingredients.sql
-5. 
 
 ## Technologies
 * HTML/CSS
